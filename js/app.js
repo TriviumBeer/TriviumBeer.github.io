@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function(){
             }  
         });  
     });
+    
     if(!(window.location.pathname== "/" || window.location.pathname== "" || window.location.pathname== "/index.html")){
         let section= window.location.pathname.replace(".html", "");
         document.querySelector(`.link#${routesInverse[section]}-link`).click();
