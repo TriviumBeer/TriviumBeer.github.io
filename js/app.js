@@ -24,9 +24,8 @@ document.addEventListener("DOMContentLoaded", function(){
     window.previousSection= document.querySelector("#about.relevant-content");
     
     content.addEventListener("scroll", ()=> {
-        console.log("scrolling")
         const scrollTop= content.scrollTop;
-        background.style.filter= `blur(${scrollTop / 65}px)`;
+        background.style.filter= `blur(${scrollTop / 74}px)`;
         updateFigure()
         if(content.scrollTop > 230){
             if(document.querySelector(".link.active")?.id=="home-link"){
@@ -257,12 +256,14 @@ landingPages = {
 
 function updateFigure() {
     let e = document.querySelector(".content")
-    if (e.scrollTopMax - e.scrollTop < 75) {
+    window.ee= e;
+    eScrollTopMax= e.scrollHeight - e.clientHeight
+    if (eScrollTopMax - e.scrollTop < 75) {
 
-        document.querySelector(".bottom").style.paddingTop = `${e.scrollTopMax - e.scrollTop}px`
-        document.querySelector(".content figure img").style.width = `${85 + e.scrollTopMax - e.scrollTop}px`
-        if (e.scrollTopMax - e.scrollTop < 5) {
-            document.querySelector(".content figure").style.paddingTop = `${5 - (e.scrollTopMax - e.scrollTop)}px`
+        document.querySelector(".bottom").style.paddingTop = `${eScrollTopMax - e.scrollTop}px`
+        document.querySelector(".content figure img").style.width = `${85 + eScrollTopMax - e.scrollTop}px`
+        if (eScrollTopMax - e.scrollTop < 5) {
+            document.querySelector(".content figure").style.paddingTop = `${5 - (eScrollTopMax - e.scrollTop)}px`
         } else {
             document.querySelector(".content figure").style.paddingTop = `0px`
 
